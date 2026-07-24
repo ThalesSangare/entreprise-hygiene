@@ -58,15 +58,22 @@ export default function Contact() {
         </div>
 
         {/* Colonne formulaire */}
-        <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-8 shadow-sm space-y-5">
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white rounded-2xl p-8 shadow-sm space-y-5"
+        >
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-forest-dark mb-1.5">
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-forest-dark mb-1.5"
+            >
               Nom complet
             </label>
             <input
               id="name"
               name="name"
               type="text"
+              placeholder="Thales Sangare"
               required
               value={form.name}
               onChange={handleChange}
@@ -75,13 +82,17 @@ export default function Contact() {
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-forest-dark mb-1.5">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-forest-dark mb-1.5"
+            >
               E-mail
             </label>
             <input
               id="email"
               name="email"
               type="email"
+              placeholder="thales@gmail.com"
               required
               value={form.email}
               onChange={handleChange}
@@ -90,7 +101,10 @@ export default function Contact() {
           </div>
 
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-forest-dark mb-1.5">
+            <label
+              htmlFor="message"
+              className="block text-sm font-medium text-forest-dark mb-1.5"
+            >
               Message
             </label>
             <textarea

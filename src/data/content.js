@@ -14,10 +14,9 @@ export const company = {
   shortName: "GHA",
   tagline: "Un cadre de vie plus sain, un environnement mieux protégé.",
   country: "République de Guinée",
-  // TODO: remplacer par les vraies coordonnées de l'entreprise
-  phone: "+224 XX XX XX XX",
-  email: "contact@gha-guinee.com",
-  address: "Siège social — République de Guinée",
+  phone: "+224 628 30 39 07",
+  email: "egberedou@gmail.com",
+  address: "Siège social — Conakry",
 };
 
 // Liens de la navigation principale (Header) — l'"id" correspond à
@@ -130,8 +129,7 @@ export const commitments = [
 export const about = {
   intro:
     "GBEREDOU Hygiène et Assainissement est née de la volonté de contribuer à l'amélioration du cadre de vie des populations à travers des services modernes, efficaces et durables.",
-  body:
-    "Face aux défis liés à l'insalubrité, à la mauvaise gestion des déchets et à la dégradation de l'environnement, ses fondateurs ont décidé de créer une entreprise capable d'offrir des solutions innovantes, fiables et adaptées aux besoins des collectivités, des entreprises et des particuliers. Depuis sa création, GHA œuvre pour promouvoir une culture de la propreté, de la prévention sanitaire et de la protection de l'environnement.",
+  body: "Face aux défis liés à l'insalubrité, à la mauvaise gestion des déchets et à la dégradation de l'environnement, ses fondateurs ont décidé de créer une entreprise capable d'offrir des solutions innovantes, fiables et adaptées aux besoins des collectivités, des entreprises et des particuliers. Depuis sa création, GHA œuvre pour promouvoir une culture de la propreté, de la prévention sanitaire et de la protection de l'environnement.",
   nature:
     "GBEREDOU Hygiène et Assainissement est une entreprise de droit guinéen qui exerce ses activités dans les domaines de l'hygiène publique, de l'assainissement, de la gestion des déchets, de la protection de l'environnement, du nettoyage industriel et de la prestation de services, dans le respect des lois de la République de Guinée et des principes du développement durable.",
 };
