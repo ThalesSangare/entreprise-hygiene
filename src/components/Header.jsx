@@ -27,7 +27,9 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-colors duration-300 ${
-        scrolled ? "bg-forest-dark/95 backdrop-blur shadow-lg shadow-black/10" : "bg-transparent"
+        scrolled
+          ? "bg-forest-dark/95 backdrop-blur shadow-lg shadow-black/10"
+          : "bg-transparent"
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -54,7 +56,8 @@ export default function Header() {
             </button>
           ))}
           <button
-            onClick={() => goTo("contact")}
+            // onClick={() => goTo("contact")}
+            onClick={() => alert("En cours de développement")}
             className="text-sm font-medium bg-gold hover:bg-gold-dark text-forest-dark px-4 py-2 rounded-full transition-colors"
           >
             Demander un devis
@@ -84,7 +87,8 @@ export default function Header() {
             </button>
           ))}
           <button
-            onClick={() => goTo("contact")}
+            // onClick={() => goTo("contact")}
+            onClick={() => alert("En cours de développement")}
             className="text-sm font-medium bg-gold text-forest-dark px-4 py-2 rounded-full w-fit"
           >
             Demander un devis
