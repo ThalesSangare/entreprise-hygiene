@@ -1,0 +1,86 @@
+/* ==========================================================================
+   FEUILLE DE STYLE PRINCIPALE — GBEREDOU HYGIÈNE ET ASSAINISSEMENT (GHA)
+   ==========================================================================
+   Avec Tailwind v4, on importe Tailwind puis on définit notre propre
+   "thème" (couleurs, polices...) directement en CSS via @theme.
+   Ces variables deviennent ensuite utilisables comme classes Tailwind :
+   ex. bg-forest, text-teal, font-display, etc.
+   ========================================================================== */
+
+@import "tailwindcss";
+
+@theme {
+  /* --- Palette -----------------------------------------------------------
+     Vert forêt : couleur institutionnelle, sérieuse, "terrain" (environnement).
+     Sarcelle   : couleur d'accent qui évoque l'eau propre / l'hygiène.
+     Or         : accent chaud pour les appels à l'action (clin d'œil discret
+                  au jaune du drapeau guinéen, sans être littéral).
+     Ivoire     : fond clair, légèrement teinté de vert pour rester dans
+                  l'univers "nature/propreté" plutôt qu'un blanc/crème neutre.
+     Encre      : texte principal, presque noir mais teinté de vert foncé.
+  ------------------------------------------------------------------------- */
+  --color-forest: #123524;
+  --color-forest-light: #1f5c3d;
+  --color-forest-dark: #0a2116;
+  --color-teal: #2a9d8f;
+  --color-teal-light: #4fb8aa;
+  --color-gold: #e0a527;
+  --color-gold-dark: #b9840f;
+  --color-ivory: #f2f6f3;
+  --color-ivory-dark: #e7ede8;
+  --color-ink: #16201a;
+
+  /* --- Typographies --------------------------------------------------------
+     Display : Space Grotesk -> caractère civique/technique pour les titres.
+     Corps   : Inter -> très lisible pour les longs paragraphes.
+     Mono    : IBM Plex Mono -> pour les petites étiquettes ("eyebrows"),
+               les numéros d'articles et les données chiffrées.
+  ------------------------------------------------------------------------- */
+  --font-display: "Space Grotesk", "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+/* Réglages de base */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-ivory);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+/* On respecte les personnes qui préfèrent réduire les animations */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Motif "ligne de collecte" : une ligne pointillée animée qui traverse le
+   Hero, comme le trajet d'un camion de collecte sur sa tournée.
+   C'est l'élément signature du design (voir Hero.jsx).
+   -------------------------------------------------------------------------- */
+@keyframes route-dash {
+  to {
+    stroke-dashoffset: -200;
+  }
+}
+
+.route-line {
+  animation: route-dash 12s linear infinite;
+}
+
+/* Focus clavier bien visible partout (accessibilité) */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
