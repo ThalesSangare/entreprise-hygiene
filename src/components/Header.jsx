@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { company, navLinks } from "../data/content";
+import logo from "../assets/logo.JPG";
 import Icon from "./Icon";
 
 // ============================================================================
@@ -34,12 +35,22 @@ export default function Header() {
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo texte simple : à remplacer par une image si le client a un logo */}
-        <button
+        {/* ce code en bas est pour quand je veux pas d'image comme logo mais juste un texte */}
+        {/* <button
           onClick={() => goTo("accueil")}
           className="font-display font-semibold text-ivory text-lg tracking-tight"
         >
           {company.shortName}
           <span className="hidden sm:inline text-ivory/60 font-normal text-sm ml-2">
+            {company.name}
+          </span>
+        </button> */}
+        <button
+          onClick={() => goTo("accueil")}
+          className="flex items-center gap-3"
+        >
+          <img src={logo} alt={company.name} className="h-10 w-auto" />
+          <span className="hidden sm:inline text-ivory/60 font-normal text-sm">
             {company.name}
           </span>
         </button>
