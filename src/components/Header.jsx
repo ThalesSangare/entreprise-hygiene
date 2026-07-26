@@ -49,8 +49,12 @@ export default function Header() {
           onClick={() => goTo("accueil")}
           className="flex items-center gap-3"
         >
-          <img src={logo} alt={company.name} className="h-10 w-auto" />
-          <span className="hidden sm:inline text-ivory/60 font-normal text-sm">
+          <img
+            src={logo}
+            alt={company.name}
+            className="h-10 w-auto rounded-3xl"
+          />
+          <span className="hidden sm:inline text-ivory/60 font-normal text-sm ">
             {company.name}
           </span>
         </button>
