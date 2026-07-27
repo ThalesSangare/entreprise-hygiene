@@ -2,6 +2,7 @@ import { useState } from "react";
 import { company } from "../data/content";
 import Icon from "./Icon";
 import emailjs from "@emailjs/browser";
+import Swal from "sweetalert2"; // Pour personnaliser le msg apres envoi ou en cas d'erreur
 
 // ============================================================================
 // Contact.jsx — coordonnées + formulaire de contact
@@ -14,12 +15,25 @@ export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sent, setSent] = useState(false);
 
+  // Se déclenche UNE SEULE FOIS, juste après que "sent" passe à true
+  useEffect(() => {
+    if (sent) {
+      Swal.fire({
+        title: "Succès !",
+        text: "Message envoyé avec succès",
+        icon: "success",
+        draggable: true,
+      });
+    }
+  }, [sent]);
+
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setSent(false); // <- on force la remise à zéro avant l'appel
 
     try {
       await emailjs.send(
@@ -36,7 +50,12 @@ export default function Contact() {
       setSent(true);
       setForm({ name: "", email: "", message: "" });
     } catch (error) {
-      alert("Une erreur est survenue, réessaie plus tard.");
+      // alert("Une erreur est survenue, réessaie plus tard.");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Une erreur est survenue, réessaie plus tard.",
+      });
     }
   };
 
@@ -140,12 +159,6 @@ export default function Contact() {
           >
             Envoyer le message
           </button>
-
-          {sent && (
-            <p className="text-teal text-sm text-center" role="status">
-              Merci, votre message a bien été pris en compte.
-            </p>
-          )}
         </form>
       </div>
     </section>
