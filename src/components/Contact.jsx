@@ -25,7 +25,7 @@ export default function Contact() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          access_key: "TA_CLE_ICI", // remplace par ta vraie Access Key
+          access_key: "715a16e9-1cb2-44f0-b8cd-fd9fb44cdfbd", // remplace par ta vraie Access Key
           name: form.name,
           email: form.email,
           message: form.message,
