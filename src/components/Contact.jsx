@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { company } from "../data/content";
 import Icon from "./Icon";
+import emailjs from "@emailjs/browser";
 
 // ============================================================================
 // Contact.jsx — coordonnées + formulaire de contact
@@ -21,26 +22,19 @@ export default function Contact() {
     e.preventDefault();
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          access_key: "715a16e9-1cb2-44f0-b8cd-fd9fb44cdfbd", // remplace par ta vraie Access Key
+      await emailjs.send(
+        "service_3peb7ij", //  Service ID
+        "template_287sbzo", //  Template ID
+        {
           name: form.name,
           email: form.email,
           message: form.message,
-          subject: `Nouveau message de ${form.name} — site GHA`,
-        }),
-      });
+        },
+        "LS9lVbBbo9Sh7GXMS", //  Public Key
+      );
 
-      const result = await response.json();
-
-      if (result.success) {
-        setSent(true);
-        setForm({ name: "", email: "", message: "" }); // vide le formulaire
-      } else {
-        alert("Une erreur est survenue, réessaie plus tard.");
-      }
+      setSent(true);
+      setForm({ name: "", email: "", message: "" });
     } catch (error) {
       alert("Une erreur est survenue, réessaie plus tard.");
     }
