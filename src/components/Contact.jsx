@@ -17,11 +17,33 @@ export default function Contact() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: brancher un vrai service d'envoi (Formspree, EmailJS, API...)
-    console.log("Message envoyé (à connecter à un service réel) :", form);
-    setSent(true);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: "TA_CLE_ICI", // remplace par ta vraie Access Key
+          name: form.name,
+          email: form.email,
+          message: form.message,
+          subject: `Nouveau message de ${form.name} — site GHA`,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSent(true);
+        setForm({ name: "", email: "", message: "" }); // vide le formulaire
+      } else {
+        alert("Une erreur est survenue, réessaie plus tard.");
+      }
+    } catch (error) {
+      alert("Une erreur est survenue, réessaie plus tard.");
+    }
   };
 
   return (

@@ -16,7 +16,7 @@ export const company = {
   country: "République de Guinée",
   phone: "+224 628 30 39 07",
   email: "egberedou@gmail.com",
-  address: "Siège social — Conakry",
+  address: "Siège social — Kouroussa",
 };
 
 // Liens de la navigation principale (Header) — l'"id" correspond à
