@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { company } from "../data/content";
 import Icon from "./Icon";
 import emailjs from "@emailjs/browser";
